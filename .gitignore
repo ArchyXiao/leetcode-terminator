@@ -1,2 +1,8 @@
 out/*
 
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/leetcode-terminator.iml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/workspace.xml

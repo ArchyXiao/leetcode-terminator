@@ -1,3 +1,5 @@
+package com.leetcode.easy;
+
 /**
  * @Description:
  * Reverse a singly linked list.
