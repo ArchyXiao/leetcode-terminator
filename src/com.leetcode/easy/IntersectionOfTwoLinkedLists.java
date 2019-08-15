@@ -1,5 +1,3 @@
-package com.leetcode.easy;
-
 /**
  * @Description:
  * Write a program to find the node at which the intersection of two singly linked lists begins.
@@ -46,7 +44,7 @@ public class IntersectionOfTwoLinkedLists {
      *
      * @param headA
      * @param headB
-     * @return: com.leetcode.easy.IntersectionOfTwoLinkedLists.ListNode
+     * @return: IntersectionOfTwoLinkedLists.ListNode
      */
     public ListNode getIntersectionNode01(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) {
