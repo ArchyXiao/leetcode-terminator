@@ -1,4 +1,4 @@
-
+package com.leetcode.easy;
 
 /**
  * @Description:
