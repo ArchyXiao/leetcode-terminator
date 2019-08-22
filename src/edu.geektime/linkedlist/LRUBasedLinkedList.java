@@ -1,5 +1,7 @@
 package edu.geektime.linkedlist;
 
+import java.util.Scanner;
+
 /**
  * @Description: 基于单链表的LRU算法
  * @Auther: xiaoshude
@@ -59,7 +61,7 @@ public class LRUBasedLinkedList<T> {
     public LRUBasedLinkedList() {
         this.headNode = new SNode<>();
         this.capacity = DEFAULT_CAPACITY;
-        this.length = 10;
+        this.length = 0;
     }
 
     public LRUBasedLinkedList(Integer capacity) {
@@ -97,34 +99,63 @@ public class LRUBasedLinkedList<T> {
     }
 
     /**
-     * @Description: 链表
+     * @Description: 链表头部插入结点
      * @return: void
      */
     private void insertElemAtBegin(T data) {
-
+        SNode next = headNode.getNext();
+        headNode.setNext(new SNode(data, next));
+        length++;
     }
 
+    /**
+     * @Description: 获取查找到元素的前一个结点
+     * @param data
+     * @return: edu.geektime.linkedlist.LRUBasedLinkedList<T>.SNode
+     */
+    private SNode findPreNode(T data) {
+        SNode node = headNode;
+        while (node.getNext() != null) {
+            if (data.equals(node.getNext().getElement())) {
+                return node;
+            }
+            node = node.getNext();
+        }
+        return null;
+    }
 
+    private void deleteElemAtEnd() {
+        SNode ptr = headNode;
+        // 空链表直接返回
+        if (ptr.getNext() == null) {
+            return;
+        }
+        // 倒数第二个结点
+        while (ptr.getNext().getNext() != null) {
+            ptr = ptr.getNext();
+        }
 
+        SNode tmp = ptr.getNext();
+        ptr.setNext(null);
+        tmp = null;
+        length--;
+    }
 
+    private void printAll() {
+        SNode node = headNode.getNext();
+        while (node != null) {
+            System.out.print(node.getElement() + " , ");
+            node = node.getNext();
+        }
+        System.out.println();
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static void main(String[] args) {
+        LRUBasedLinkedList list = new LRUBasedLinkedList();
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            list.add(sc.nextInt());
+            list.printAll();
+        }
+    }
 }
