@@ -6,3 +6,5 @@ out/*
 .idea/leetcode-terminator.iml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/workspace.xml
+target/
+.idea/uiDesigner.xml
