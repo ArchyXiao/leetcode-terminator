@@ -1,5 +1,3 @@
-package com.leetcode.hard;
-
 import java.util.Map;
 
 /**
@@ -60,7 +58,7 @@ public class CountOfAtoms {
     }
 
     public Map<String, Integer> calculateParenthesis(Integer multiplier, String formula) {
-
+        return null;
     }
 
 

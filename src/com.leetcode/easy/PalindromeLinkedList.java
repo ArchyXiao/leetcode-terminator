@@ -1,5 +1,3 @@
-package com.leetcode.easy;
-
 /**
  * @Description:
  * Given a singly linked list, determine if it is a palindrome.
