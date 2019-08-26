@@ -1,5 +1,3 @@
-package com.leetcode.hard;
-
 import java.util.ArrayDeque;
 
 /**
@@ -114,6 +112,7 @@ public class SlidingWindowMaximum {
         }
 
         output[0] = nums[maxId];
+        // output[i - k + 1] = nums[deque.getFirst()];
 
         // build output
         for (int i = k; i < length; i++) {
