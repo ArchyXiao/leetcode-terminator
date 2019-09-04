@@ -93,6 +93,10 @@ public class MinNumberInRotateArray {
      * 再讨论每次二分查找时范围的变化，由于情况数组的情况 1 能直接找到最小值，需要变化范围的肯定是情况 2：
      * 当下标为 n 的值大于下标为 0 的值，从 0 到 n 这一段肯定是升序，由于是情况 2，最小值肯定在后半段
      * 当下标为 n 的值小于下标为 0 的值，从 0 到 n 这一段不是升序，最小值肯定在这一段
+     *
+     * 考虑重复元素存在的递增序列 {0，1, 1, 1，1}
+     * 两个旋转数组 ｛1, 0，1, 1, 1｝ {1, 1, 1, 0, 1}
+     *
      * @param array
      * @return: int
      */
@@ -106,10 +110,12 @@ public class MinNumberInRotateArray {
             if (array[low] < array[high]) {
                 return array[low];
             }
-            if (array[mid] > array[high]) {
+            if (array[mid] > array[low]) {
                 low = mid + 1;
-            } else {
+            } else  if (array[mid] < array[high]){
                 high = mid;
+            } else {
+                low++;
             }
         }
         return array[low];
