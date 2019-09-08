@@ -1,4 +1,4 @@
-package edu.sword.refers.completeness;
+package edu.sword.refers.completeness_robustness;
 
 /**
  * @Description: 数值的整数次方
@@ -100,8 +100,6 @@ public class Power {
         }
         return exponent > 0 ? res : 1 / res;
     }
-
-
 
 
 
