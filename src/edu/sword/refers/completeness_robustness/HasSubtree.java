@@ -1,5 +1,7 @@
 package edu.sword.refers.completeness_robustness;
 
+import common.TreeNode;
+
 /**
  * @Description: 树的子结构
  * 输入两棵二叉树 A，B，判断 B 是不是 A 的子结构。（ps：我们约定空树不是任意一个树的子结构）
@@ -12,14 +14,6 @@ package edu.sword.refers.completeness_robustness;
  * @Date: 2019/9/8 00:44
  */
 public class HasSubtree {
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * @Description:

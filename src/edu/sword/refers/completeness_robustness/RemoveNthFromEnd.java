@@ -1,5 +1,7 @@
 package edu.sword.refers.completeness_robustness;
 
+import common.ListNode;
+
 /**
  * @Description: 删除链表的倒数第N个节点
  * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
@@ -9,14 +11,6 @@ package edu.sword.refers.completeness_robustness;
  * @Date: 2019/9/7 23:53
  */
 public class RemoveNthFromEnd {
-    class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     /**
      * @Description:
      * 倒数第 k 个结点的位置就在正数第 (n - k + 1) 位置

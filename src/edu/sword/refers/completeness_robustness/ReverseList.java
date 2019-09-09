@@ -1,18 +1,13 @@
 package edu.sword.refers.completeness_robustness;
 
+import common.ListNode;
+
 /**
  * @Description:
  * @Auther: Archy
  * @Date: 2019/9/8 00:12
  */
 public class ReverseList {
-    class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode ReverseList(ListNode head) {
         if (head == null) {

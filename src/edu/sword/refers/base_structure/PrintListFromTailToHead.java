@@ -1,5 +1,7 @@
 package edu.sword.refers.base_structure;
 
+import common.ListNode;
+
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -11,15 +13,7 @@ import java.util.Stack;
  * @Date: 2019/9/1 00:21
  */
 public class PrintListFromTailToHead {
-     ArrayList<Integer> list = new ArrayList<>();
-     class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int val) {
-            this.val = val;
-            this.next = null;
-        }
-    }
+    ArrayList<Integer> list = new ArrayList<>();
 
     public ArrayList<Integer> printListFromTailToHead01(ListNode listNode) {
         Stack<Integer> stack = new Stack<>();

@@ -1,5 +1,7 @@
 package edu.sword.refers.completeness_robustness;
 
+import common.ListNode;
+
 /**
  * @Description: 链表中倒数第 k 个结点
  * 输入一个链表，输出该链表中倒数第 k 个结点。
@@ -8,13 +10,6 @@ package edu.sword.refers.completeness_robustness;
  * @Date: 2019/9/7 22:17
  */
 public class FindKthToTail {
-    class ListNode {
-        int val;
-        ListNode next;
-        public ListNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * @Description:

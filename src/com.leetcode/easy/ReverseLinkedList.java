@@ -1,3 +1,5 @@
+import common.ListNode;
+
 /**
  * @Description:
  * Reverse a singly linked list.
@@ -13,16 +15,6 @@
  * @Date: 2019/8/2 11:54
  */
 public class ReverseLinkedList {
-
-    /**
-     * Definition for singly-linked list.
-     *
-     */
-     class ListNode {
-         int val;
-         ListNode next;
-         ListNode(int x) { val = x; }
-      }
 
       /**
        * @Description:

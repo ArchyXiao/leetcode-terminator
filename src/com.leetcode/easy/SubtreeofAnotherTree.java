@@ -1,5 +1,7 @@
 package com.leetcode.easy;
 
+import common.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,13 +45,6 @@ import java.util.Map;
  * @Date: 2019/9/8 12:22
  */
 public class SubtreeofAnotherTree {
-
-    static class TreeNode {
-      int val;
-      TreeNode left;
-      TreeNode right;
-      TreeNode(int x) { val = x; }
-    }
 
     /**
      * @Description: 递归法

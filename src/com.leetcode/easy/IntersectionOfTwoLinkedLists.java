@@ -1,3 +1,5 @@
+import common.ListNode;
+
 /**
  * @Description:
  * Write a program to find the node at which the intersection of two singly linked lists begins.
@@ -28,11 +30,6 @@
  * @Date: 2019/8/8 19:16
  */
 public class IntersectionOfTwoLinkedLists {
-    class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
     
     /**
      * @Description: 暴力法

@@ -1,5 +1,7 @@
 package edu.sword.refers.base_structure;
 
+import common.TreeNode;
+
 /**
  * @Description: 重建二叉树
  * 输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。
@@ -9,15 +11,6 @@ package edu.sword.refers.base_structure;
  * @Date: 2019/9/1 01:33
  */
 public class ReConstructBinaryTree {
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        public TreeNode(int x) {
-            val = x;
-        }
-    }
-
     /**
      * @Description:
      * 根据中序遍历和前序遍历可以确定二叉树，具体过程为：

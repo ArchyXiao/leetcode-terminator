@@ -1,4 +1,4 @@
-import java.util.List;
+import common.ListNode;
 
 /**
  * @Description:
@@ -22,11 +22,6 @@ import java.util.List;
  * @Date: 2019/8/24 20:27
  */
 public class ReverseNodesInKGroup {
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
 
     /**
      * @Description:

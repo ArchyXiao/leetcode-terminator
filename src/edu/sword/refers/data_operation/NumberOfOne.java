@@ -65,19 +65,4 @@ public class NumberOfOne {
         }
         return count;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
