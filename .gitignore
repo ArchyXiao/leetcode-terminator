@@ -8,3 +8,4 @@ out/*
 .idea/workspace.xml
 target/
 .idea/uiDesigner.xml
+.idea/

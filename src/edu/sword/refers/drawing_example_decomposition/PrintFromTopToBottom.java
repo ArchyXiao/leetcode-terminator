@@ -9,7 +9,6 @@ import java.util.Queue;
 /**
  * @Description: 从上往下打印二叉树
  * 从上往下打印出二叉树的每个节点，同层节点从左至右打印
- *
  * @Auther: xiaoshude
  * @Date: 2019/9/9 15:11
  */
@@ -40,4 +39,5 @@ public class PrintFromTopToBottom {
 
         return res;
     }
+
 }
