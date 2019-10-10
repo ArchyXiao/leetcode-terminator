@@ -1,3 +1,5 @@
+package easy.array;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -5,7 +7,7 @@ import java.util.Map;
 
 /**
  * @Description:
- * Design and implement a TwoSum class. It should support the following operations: add and find.
+ * Design and implement a easy.array.TwoSum class. It should support the following operations: add and find.
  * add - Add the number to an internal data structure.
  * find - Find if there exists any pair of numbers which sum is equal to the value.
  *

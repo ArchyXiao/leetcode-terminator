@@ -1,3 +1,5 @@
+package easy.array;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,6 +39,7 @@ public class TwoSum {
                 }
             }
         }
+
         throw new IllegalArgumentException("No two sum solution");
     }
 
@@ -69,6 +72,8 @@ public class TwoSum {
             if (map.containsKey(complement) && map.get(complement) != i) {
                 return new int[] {i, map.get(complement)};
             }
+
+
         }
         throw new IllegalArgumentException("No two sum solution");
     }

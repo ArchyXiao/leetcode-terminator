@@ -1,3 +1,5 @@
+package easy.array;
+
 /**
  * @Description:
  * Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
@@ -15,7 +17,7 @@
  * @Auther: lenovo
  * @Date: 2019/7/1 12:49
  */
-public class TwoSumII {
+public class TwoSumIIInputArrayIsSorted {
     /**
      * @Description:
      * 【双指针】
@@ -49,7 +51,7 @@ public class TwoSumII {
 
     public static void main(String[] args) {
         int[] nums = {2,7,11,15};
-        TwoSumII twoSum = new TwoSumII();
+        TwoSumIIInputArrayIsSorted twoSum = new TwoSumIIInputArrayIsSorted();
         int[] ints = twoSum.twoSum(nums, 9);
         for(int i : ints) {
             System.out.println(i);
