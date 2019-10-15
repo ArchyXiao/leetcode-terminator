@@ -10,5 +10,5 @@ package edu.sword.refers.data_operation;
  */
 public class VerifySquenceOfBST {
 
-    public boolean
+    // public boolean
 }
