@@ -5,33 +5,34 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @Description: Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.
- * <p>
+ * @Description:
+ * Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal's triangle.
+ *
+ * Note that the row index starts from 0.
+ *
+ *
  * In Pascal's triangle, each number is the sum of the two numbers directly above it.
- * <p>
+ *
  * Example:
- * Input: 5
- * Output:
- * [1],
- * [1,1],
- * [1,2,1],
- * [1,3,3,1],
- * [1,4,6,4,1]
- * <p>
- * Tips: a[i, j] = a[i - 1, j - 1] + a[i - 1, j]
+ * Input: 3
+ * Output: [1,3,3,1]
+ * Follow up:
+ *
+ * Could you optimize your algorithm to use only O(k) extra space?
+ *
  * @Auther: xiaoshude
- * @Date: 2019/10/15 20:07
+ * @Date: 2019/10/16 09:39
  */
-public class PascalTriangle {
+public class PascalTriangleII {
 
     // Time: O(n^2), Space: O(1)
-    public List<List<Integer>> generate(int numRows) {
+    public List<Integer> getRow(int rowIndex) {
         List<List<Integer>> result = new ArrayList<>();
-        if (numRows < 1) {
-            return result;
+        if (rowIndex < 0) {
+            return new ArrayList<>();
         }
 
-        for (int i = 0; i < numRows; i++) {
+        for (int i = 0; i < rowIndex + 1; i++) {
             List<Integer> subList = Arrays.asList(new Integer[i + 1]);
             subList.set(0, 1);
             subList.set(i, 1);
@@ -40,6 +41,6 @@ public class PascalTriangle {
             }
             result.add(subList);
         }
-        return result;
+        return result.get(rowIndex);
     }
 }
