@@ -24,4 +24,24 @@ package com.leetcode.easy.string;
  * @Date: 2019/10/25 16:16
  */
 public class ImplementStrStr {
+
+    // Time: O((n-m+1)*m), Space: O(1)
+    public int strStr(String haystack, String needle) {
+        if (needle == null || haystack == null) {
+            return -1;
+        }
+        if (needle.length() == 0) {
+            return 0;
+        }
+
+        int m = needle.length(), n = haystack.length();
+        for (int i = 0; i <= n - m; i++) {
+            int j = 0, k = i;
+            for (; j < m && k < n && needle.charAt(j) == haystack.charAt(k); j++, k++);
+            if (j == m) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
