@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.leetcode.medium.string;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -98,7 +98,6 @@ public class LongestSubstringWithoutRepeatingCharacters {
      *
      * 时间复杂度：O(2n) = O(n)，在最糟糕的情况下，每个字符将被 i 和 j 访问两次。
      * 空间复杂度：O(min(m, n))，与之前的方法相同。滑动窗口法需要 O(k) 的空间，其中 k 表示 Set 的大小。而 Set 的大小取决于字符串 n 的大小以及字符集 / 字母 m 的大小。
-     *
      *
      * @param s
      * @return: int
