@@ -1,9 +1,6 @@
 package com.leetcode.medium.string;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @Description:
@@ -168,5 +165,44 @@ public class LongestSubstringWithoutRepeatingCharacters {
             index[s.charAt(j)] = j + 1;
         }
         return ans;
+    }
+
+    // Time: O(n), Space: O(m), m 是字符集大小
+    // 双指针法，从下标零开始，遍历字符串 2次
+    // 计数数组中存在该字符，则跳出内层循环
+    // 不存在则进行计数，并且持续移动 j 游标
+    // 外层循环取内外层循坏的游标差值 j - i, 并且与 maxLen 作比较
+    // 外层循环游标移动时必须减掉当前游标 i 在 count 数组中的计数
+    public int lengthOfLongestSubstring05(String s) {
+        int[] counts = new int[256];
+        int i = 0, j = 0, maxLen = 0;
+        for (; i < s.length(); i++) {
+            for (; j < s.length(); j++) {
+                if (counts[s.charAt(j)] != 0) {
+                    break;
+                }
+                counts[s.charAt(j)] += 1;
+            }
+            maxLen = Math.max(maxLen, j - i);
+            counts[s.charAt(i)] -= 1;
+        }
+        return maxLen;
+    }
+
+    // Time: O(n), Space: O(m), m 是字符集大小
+    // 对方法05的改良
+    // 当游标 j 遇到重复字符时，游标 i 可以直接跳到 j 的下一个位置
+    // 因为中间就算存在不重复子串，长度也不可能超过 maxLen
+    // index 数组用于记录字符在字符串中的下标，下标为 0 时同样有意义，所以必须全部初始化为 -1
+    public int lengthOfLongestSubstring06(String s) {
+        int[] index = new int[256];
+        Arrays.fill(index, -1);
+        int maxLen = 0;
+        for (int i = 0, j = 0; j < s.length(); j++) {
+            i = Math.max(i, index[s.charAt(j)] + 1);
+            maxLen = Math.max(maxLen, j - i + 1);
+            index[s.charAt(j)] = j;
+        }
+        return maxLen;
     }
 }
