@@ -1,5 +1,7 @@
 package linklist;
 
+import common.ListNode;
+
 /**
  * @Description:
  * Given a linked list, rotate the list to the right by k places, where k is non-negative.
@@ -26,5 +28,31 @@ package linklist;
  */
 public class RotateList {
 
+    // Time: O(n), Space: O(1)
+    // k 大于 n 的情况下存在重复旋转操作，直接取余再进行操作
+    // 遍历链表两次
+    // 第一次先作计数，并且将尾结点指向头结点，使链表成环
+    // 第二次从头结点开始，移动 n - k - 1 个位置，确定新的尾结点，保存尾结点的下一个结点作为新的头结点
+    // newEnd.next 置空，返回 newHead
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null || head.next == null || k <= 0) {
+            return head;
+        }
+        int n = 1;
+        ListNode end = head;
+        for (; end.next != null; end = end.next) {
+            n++;
+        }
+        end.next = head;
 
+        k %= n;
+        ListNode newEnd = head;
+        for (int i = 0; i < n - k - 1; i++) {
+            newEnd = newEnd.next;
+        }
+        ListNode newHead = newEnd.next;
+        newEnd.next = null;
+
+        return newHead;
+    }
 }
