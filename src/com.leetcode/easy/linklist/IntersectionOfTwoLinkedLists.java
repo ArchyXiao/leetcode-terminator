@@ -1,5 +1,7 @@
 package com.leetcode.easy.linklist;
 
+import common.ListNode;
+
 /**
  * @Description:
  * Write a program to find the node at which the intersection of two singly linked lists begins.
@@ -40,5 +42,45 @@ package com.leetcode.easy.linklist;
  */
 public class IntersectionOfTwoLinkedLists {
 
+    // Time: O(m+n), Space: O(1)
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        int lenA = 1, lenB = 1;
+        for (ListNode p = headA; p.next != null; p = p.next) {
+            lenA++;
+        }
+        for (ListNode q = headB; q.next != null; q = q.next) {
+            lenB++;
+        }
+        ListNode p = headA, q = headB;
+        if (lenA > lenB) {
+            for (int  i = 0; i < lenA - lenB; i++) {
+                p = p.next;
+            }
+        } else {
+            for (int i = 0; i < lenB - lenA; i++) {
+                q = q.next;
+            }
+        }
+        while (p != q) {
+            p = p.next;
+            q = q.next;
+        }
+        return p;
+    }
 
+    // Time: O(m+n), Space: O(1)
+    public ListNode getIntersectionNode02(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        ListNode p = headA, q = headB;
+        while (p != q) {
+            p = p == null ? headB : p.next;
+            q = q == null ? headA : q.next;
+        }
+        return p;
+    }
 }
