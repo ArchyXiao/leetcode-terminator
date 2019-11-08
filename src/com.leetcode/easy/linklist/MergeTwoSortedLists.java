@@ -1,3 +1,5 @@
+package com.leetcode.easy.linklist;
+
 import common.ListNode;
 
 /**
@@ -11,7 +13,7 @@ import common.ListNode;
  * @Auther: xiaoshude
  * @Date: 2019/8/5 19:27
  */
-public class TwoListsMerge {
+public class MergeTwoSortedLists {
 
     /**
      * @Description:
@@ -34,7 +36,7 @@ public class TwoListsMerge {
      *
      * @param l1
      * @param l2
-     * @return: TwoListsMerge.ListNode
+     * @return: com.leetcode.easy.linklist.MergeTwoSortedLists.ListNode
      */
     public ListNode mergeTwoLists01(ListNode l1, ListNode l2) {
         if (l1 == null) {
@@ -67,7 +69,7 @@ public class TwoListsMerge {
      *
      * @param l1
      * @param l2
-     * @return: TwoListsMerge.ListNode
+     * @return: com.leetcode.easy.linklist.MergeTwoSortedLists.ListNode
      */
     public ListNode mergeTwoLists02(ListNode l1, ListNode l2) {
         ListNode prehead = new ListNode(-1);
@@ -87,5 +89,28 @@ public class TwoListsMerge {
         prev.next = l1 == null ? l2 : l1;
 
         return prehead.next;
+    }
+
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0), p = dummy;
+        while (l1 != null && l2 != null) {
+            if (l1.val > l2.val) {
+                p.next = l2;
+                l2 = l2.next;
+            } else {
+                p.next = l1;
+                l1 = l1.next;
+            }
+            p = p.next;
+        }
+        if (l1 != null){
+            p.next = l1;
+        }
+
+        if (l2 != null) {
+            p.next = l2;
+        }
+
+        return dummy.next;
     }
 }

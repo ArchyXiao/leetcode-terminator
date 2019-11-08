@@ -1,5 +1,10 @@
 package linklist;
 
+import common.ListNode;
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @Description:
  * Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
@@ -32,4 +37,39 @@ package linklist;
  */
 public class LinkedListCycleII {
 
+    // Time: O(n), Space: O(n)
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+        Set<ListNode> set  = new HashSet<>();
+        for (ListNode p = head; p.next != null; p = p.next) {
+            if (set.contains(p)) {
+                return p;
+            }
+            set.add(p);
+        }
+        return null;
+    }
+
+    // Time: O(n), Space: O(1)
+    // 快慢指针相遇后，p 指针从 head 开始，跟慢指针一起往后移动
+    // p 与 slow 相遇时的节点正好会是进入 cycle 的点
+    public ListNode detectCycle02(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+        ListNode fast = head, slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (slow == fast) {
+                for (ListNode p = head; p != slow; p = p.next) {
+                    slow = slow.next;
+                }
+                return slow;
+            }
+        }
+        return null;
+    }
 }
