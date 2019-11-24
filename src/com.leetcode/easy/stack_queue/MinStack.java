@@ -1,5 +1,7 @@
 package com.leetcode.easy.stack_queue;
 
+import common.ListNode;
+
 import java.util.Stack;
 
 /**
@@ -57,6 +59,41 @@ public class MinStack {
 
         public int getMin() {
             return min.peek();
+        }
+    }
+
+    private static class MinStackWithLinkedList  {
+        private ListNode head = null;
+        private int min = Integer.MAX_VALUE;
+
+        /** initialize your data structure here. */
+        public MinStackWithLinkedList() {
+
+        }
+
+        public void push(int x) {
+            if (x <= min) {
+                head = new ListNode(min, head);
+                min = x;
+            }
+            head = new ListNode(x, head);
+        }
+
+        public void pop() {
+            if (top() == getMin()) {
+                min = head.next.val;
+                head = head.next.next;
+            } else {
+                head = head.next;
+            }
+        }
+
+        public int top() {
+            return head.val;
+        }
+
+        public int getMin() {
+            return min;
         }
     }
 
