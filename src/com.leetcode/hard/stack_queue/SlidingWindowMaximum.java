@@ -1,4 +1,7 @@
+package com.leetcode.hard.stack_queue;
+
 import java.util.ArrayDeque;
+import java.util.TreeMap;
 
 /**
  * @Description:
@@ -182,6 +185,8 @@ public class SlidingWindowMaximum {
     }
 
     // AlgoCasts 三解法
+    // Time: O(k*n), Space: O(1)
+    // 堆排序效率相同
     public int[] maxNumInSlidingWindowBruteForce(int[] nums, int k) {
         if (nums == null || nums.length == 0) {
             return nums;
@@ -196,5 +201,64 @@ public class SlidingWindowMaximum {
             result[i] = max;
         }
         return result;
+    }
+
+
+    // Time: O(n*log(k)), Space: O(k)
+    public int[] maxNumInSlidingWindowTreeMap(int[] nums, int k) {
+        if (nums == null || nums.length == 0) {
+            return nums;
+        }
+        int n = nums.length, p = 0;
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        for (int i = 0; i < k; ++i) {
+            map.put(nums[i], i);
+        }
+        int[] result = new int[n - k + 1];
+        result[p++] = map.lastKey();
+        for (int i = k; i < n; ++i) {
+            // 移除最左边元素，保持窗口大小为 k
+            // 条件 map.get(nums[i]) == i 说明元素为旧值，需要移除
+            // 反之，元素为新值，记录的是最新的下标，无需移除
+            if (map.get(nums[i-k]) == i-k) {
+                map.remove(nums[i-k]);
+            }
+            map.put(nums[i], i);
+            result[p++] = map.lastKey();
+        }
+        return result;
+    }
+
+    // Time: O(n), Space: O(n)
+    // 先填充辅助数组，再填充结果数组
+    // 当前滑动窗口的最大值会等于
+    // 当前滑动窗口的左右下标对应于两个辅助数组中的值，取较大值
+    // 利用取余操作可以确定当前下标是否为该分组（按 k 划分）中的第一个数
+    public int[] maxNumInSlidingWindowOn(int[] nums, int k) {
+        if (nums == null || nums.length == 0) {
+            return nums;
+        }
+        int n = nums.length;
+        int[] result = new int[n - k + 1];
+        int[] maxFromLeft = new int[n];
+        int[] maxFromRight = new int[n];
+        maxFromLeft[0] = nums[0];
+        maxFromRight[n-1] = nums[n-1];
+        for (int i = 1, j = n-2; i < n; ++i, --j) {
+            maxFromLeft[i] = i % k == 0 ? nums[i] : Math.max(maxFromLeft[i-1], nums[i]);
+            maxFromRight[j] = j % k == k-1 ? nums[j] : Math.max(maxFromRight[j+1], nums[j]);
+        }
+        for (int i = 0; i <= n-k; ++i) {
+            result[i] = Math.max(maxFromRight[i], maxFromLeft[i+k-1]);
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {-7,-8,7,5,7,1,6,0};
+        int[] result = new SlidingWindowMaximum().maxNumInSlidingWindowTreeMap(nums, 4);
+        for (int i : result) {
+            System.out.println(i);
+        }
     }
 }
