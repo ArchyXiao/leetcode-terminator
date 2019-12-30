@@ -66,4 +66,36 @@ public class RemoveElement {
         }
         return size;
     }
+
+    public int removeElement02(int[] nums, int val) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        int p = 0;
+        for (int q = 0; q < nums.length; q++) {
+            if (nums[q] != val) {
+                nums[p++] = nums[q];
+            }
+        }
+
+        return p;
+    }
+
+    public int removeElement03(int[] nums, int val) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        int  i = 0, n = nums.length;
+        while (i < n) {
+            if (nums[i] == val) {
+                nums[i] = nums[n - 1];
+                n--;
+            } else {
+                i++;
+            }
+        }
+        return n;
+    }
 }
