@@ -27,21 +27,27 @@ public class ImplementStrStr {
 
     // Time: O((n-m+1)*m), Space: O(1)
     public int strStr(String haystack, String needle) {
-        if (needle == null || haystack == null) {
+        if (haystack == null || needle == null) {
             return -1;
         }
-        if (needle.length() == 0) {
+
+        if (needle.equals("")) {
             return 0;
         }
 
         int m = needle.length(), n = haystack.length();
-        for (int i = 0; i <= n - m; i++) {
+        for (int i = 0; i <= n-m; i++) {
             int j = 0, k = i;
-            for (; j < m && k < n && needle.charAt(j) == haystack.charAt(k); j++, k++);
+            while (j < m && k < n && needle.charAt(j) == haystack.charAt(k)) {
+                j++;
+                k++;
+            }
             if (j == m) {
                 return i;
             }
         }
+
         return -1;
     }
+
 }

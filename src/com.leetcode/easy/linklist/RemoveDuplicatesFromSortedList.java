@@ -21,20 +21,14 @@ public class RemoveDuplicatesFromSortedList {
 
     // Time: O(n), Space: O(1)
     public ListNode deleteDuplicates(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode cur = head, next = head.next;
-        while (next != null) {
-            if (cur.val == next.val) {
-                cur.next = next.next;
+        ListNode current = head;
+        while (current != null && current.next != null) {
+            if (current.next.val == current.val) {
+                current.next = current.next.next;
             } else {
-                cur = cur.next;
+                current = current.next;
             }
-            next = next.next;
         }
         return head;
     }
-
-
 }
