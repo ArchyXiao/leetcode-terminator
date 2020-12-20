@@ -9,7 +9,7 @@ import java.util.Stack;
  * An input string is valid if:
  * Open brackets must be closed by the same type of brackets.
  * Open brackets must be closed in the correct order.
- * Note that an empty string is also considered valid.
+ * Note that an empty string is also considered valid.
  *
  * Example 1:
  * Input: "()"
@@ -33,6 +33,9 @@ import java.util.Stack;
  *
  * @Auther: Archy
  * @Date: 2019/8/24 22:13
+ *
+ *
+ *
  */
 public class ValidParentheses {
 

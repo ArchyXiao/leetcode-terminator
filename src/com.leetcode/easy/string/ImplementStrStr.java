@@ -17,8 +17,8 @@ package com.leetcode.easy.string;
  *
  * What should we return when needle is an empty string? This is a great question to ask during an interview.
  *
- * For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr
- * () and Java's indexOf().
+ * For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr
+ * () and Java's indexOf().
  *
  * @Auther: xiaoshude
  * @Date: 2019/10/25 16:16
@@ -49,5 +49,6 @@ public class ImplementStrStr {
 
         return -1;
     }
+
 
 }
