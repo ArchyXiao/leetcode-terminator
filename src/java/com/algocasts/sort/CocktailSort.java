@@ -1,4 +1,4 @@
-package com.algocasts.sort;
+package java.com.algocasts.sort;
 
 /**
  * @Description: 鸡尾酒排序是冒泡排序的一种变体，又叫做双向冒泡排序。
