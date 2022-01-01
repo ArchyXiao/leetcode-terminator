@@ -1,7 +1,5 @@
 package edu.sword.refers.drawing_example_decomposition;
 
-import common.ListNode;
-
 import java.util.Stack;
 
 /**
